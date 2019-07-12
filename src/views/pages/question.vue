@@ -19,40 +19,83 @@
         </v-layout>
 
 
-        <v-bottom-nav :active.sync="bottomNav" :value="true" app absolute flat color="blue">
+        <v-bottom-nav 
+          :value="true" 
+          app 
+          flat 
+          color="blue"
+        >
 
-          <v-btn color="blue" flat class="button1" @click="optionselected='a'">
+          <v-btn 
+            flat 
+            class="button-answer" 
+            @click="optionselected='a'"
+            value="a"
+          >
             <span class="white--text">A</span>
           </v-btn>
 
-          <v-btn color="teal" flat class="button1" @click="optionselected='b'">
+          <v-btn 
+            flat 
+            class="button-answer" 
+            @click="optionselected='b'"
+            value="b"
+          >
             <span class="white--text">B</span>
           </v-btn>
 
-          <v-btn color="teal" flat class="button1" @click="optionselected='c'">
+          <v-btn 
+            flat 
+            class="button-answer" 
+            @click="optionselected='c'"
+            value="c"
+          >
             <span class="white--text">C</span>
           </v-btn>
 
-          <v-btn color="teal" flat class="button1" @click="optionselected='d'">
+          <v-btn 
+            flat 
+            class="button-answer" 
+            @click="optionselected='d'"
+            value="d"
+          >
             <span class="white--text">D</span>
           </v-btn>
 
-          <v-btn color="teal" flat class="button1 button-submit" @click="submit">
+          <v-btn
+            flat 
+            class="button-answer button-submit" 
+            @click="submit"
+          >
             <span class="white--text">Submit</span>
           </v-btn>
 
         </v-bottom-nav>
 
         <div class="text-xs-center">
-            <v-dialog v-model="dialog" width="400">
+            <v-dialog 
+              v-model="dialog" 
+              width="400"
+            >
                 <v-card>
-                    <v-card-title class="headline lighten-2 text-xs-center" :class="iscorrect ? 'font-green' : 'font-orange'" primary-title>
+                    <v-card-title 
+                      class="headline lighten-2 text-xs-center" 
+                      :class="iscorrect ? 'font-green' : 'font-orange'" 
+                      primary-title
+                    >
                         <strong>{{ text }}</strong>
                     </v-card-title>
 
-                    <v-card-actions v-show="iscorrect" class="text-xs-center">
+                    <v-card-actions 
+                      v-show="iscorrect" 
+                      class="text-xs-center"
+                    >
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" flat @click="dialog = false; next()">
+                        <v-btn 
+                          color="primary" 
+                          flat 
+                          @click="dialog = false; next()"
+                        >
                             Next Question
                         </v-btn>
                     </v-card-actions>
@@ -77,6 +120,7 @@ export default {
       optionsData: [],
       optionselected: '',
       correctoption: '',
+      buttonvalue: '',
       dialog: false,
       text: "",
       iscorrect: false,
@@ -161,7 +205,7 @@ export default {
 
 <style>
 
-.button1 {
+.button-answer {
   border-left: 1px solid white;
 }
 
@@ -178,4 +222,5 @@ export default {
   color: #4ec09b;
   font-weight: bold;
 }
+
 </style>

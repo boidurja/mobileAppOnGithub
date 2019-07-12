@@ -1,38 +1,42 @@
 <template>
-    <v-container>
+    <v-container class="text-xs-center">
         <div>
-            Chapters
+            {{ chapterName }}
         </div>
 
-        <ul v-for="c in chapterData">
-            <li>{{ c.name }}</li>
-        </ul>
+        <v-divider class="mt-3"></v-divider>
+
+        <div class="mt-5 headline">
+            Daily Practice
+        </div>
+
+        <div class="body-1 mt-3">
+            This is a practice test.
+        </div>
+
+        <v-btn 
+            class="text-capitalize" 
+            block
+            @click="taketest"
+        >  
+            Take Practice test now
+        </v-btn>
+        
     </v-container>
 </template>
 
+
 <script>
-
-import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-Vue.use(VueAxios, axios)
-
 export default {
     data () {
         return {
-            chapterData: [],
+            chapterName: 'Classification'
         }
     },
-    mounted () {
-        Vue.axios.get('http://api.iqube.org.in/api/questioncategories')
-
-            .then(response => {
-            this.chapterData = response.data
-            alert('length = ' + chapterData.length)
-            })
-            .catch(e => {
-            })
+    methods: {
+        taketest () {
+            this.$router.push( { name: 'question' } )
+        }
     }
 }
 </script>
