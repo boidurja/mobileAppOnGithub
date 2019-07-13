@@ -1,11 +1,9 @@
 <template>
     <v-container class="mt-4">
 
-      {{ questionData }}
+        <span v-html="questionData[i].body"></span>
 
-        <!--span v-html="questionData[i].body"></span-->
-
-        <!--v-layout class="mt-5">
+        <v-layout class="mt-5">
           <v-flex xs3>
             (a) &nbsp; {{optionsData[0].body}}
           </v-flex>
@@ -18,7 +16,7 @@
           <v-flex xs3>
             (d) &nbsp; {{optionsData[3].body}}
           </v-flex>
-        </v-layout-->
+        </v-layout>
 
 
         <v-bottom-nav 
@@ -109,11 +107,11 @@
 
 <script>
 
-/*import Vue from 'vue'
+import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-Vue.use(VueAxios, axios)*/
+Vue.use(VueAxios, axios)
 
 export default {
   data () {
@@ -130,7 +128,7 @@ export default {
     }
   },
   mounted () {
-   /* Vue.axios.get('http://api.iqube.org.in/questions')
+   Vue.axios.get('http://api.iqube.org.in/questions')
 
             .then(response => {
             this.questionData = response.data
@@ -160,19 +158,6 @@ export default {
             })
             .catch(e => {
             })
-      */
-      this.$http.get('/questions').then(response => {
-
-        this.questionData = response.body;
-        console.log('response = ' + response.body)
-      }, error => {
-           console.error(error);
-      });
-
-    /*this.$http.get('http://api.iqube.org.in/questions').then(function(data) {
-      this.questionData = data.body;
-      console.log("function = data.body")
-    })*/
 
   },
 
@@ -193,7 +178,7 @@ export default {
     next () {
       this.i++
       
-      /*Vue.axios.get('http://api.iqube.org.in/questions/' + this.questionData[this.i].id + '/choices')
+      Vue.axios.get('http://api.iqube.org.in/questions/' + this.questionData[this.i].id + '/choices')
 
                 .then(response => {
                 this.optionsData = response.data
@@ -213,7 +198,6 @@ export default {
                 })
                 .catch(e => {
                 })
-                */
     }
   }
 }
