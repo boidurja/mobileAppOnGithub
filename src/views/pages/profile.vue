@@ -82,11 +82,11 @@
 
 <script>
 
-import Vue from 'vue'
+/*import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios)*/
 
 export default {
     data () {
@@ -95,13 +95,13 @@ export default {
         }
     },
     mounted () {
-        Vue.axios.get('http://api.iqube.org.in/api/students')
+        /*Vue.axios.get('http://api.iqube.org.in/api/students')
 
             .then(response => {
             this.studentData = response.data
             })
             .catch(e => {
-            })
+            })*/
     }
 }
 </script>

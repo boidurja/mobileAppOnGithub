@@ -22,11 +22,13 @@
             xs12 
             class="dashboard-height mt-4"
           >
-            <h2 class="text-sm-center">Monthly Tests</h2>
-            <img 
-              src="../../assets/monthly_test_icon@3x.png.png" 
-              class="dashboard-image" 
-            />
+            <router-link to="/monthlytest">
+              <h2 class="text-sm-center">Monthly Tests</h2>
+              <img 
+                src="../../assets/monthly_test_icon@3x.png.png" 
+                class="dashboard-image" 
+              />
+            </router-link>  
           </v-flex>
 
         </v-layout>

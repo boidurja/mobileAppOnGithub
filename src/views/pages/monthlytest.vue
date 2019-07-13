@@ -5,7 +5,7 @@
         </div>
 
         <v-layout 
-            class="mt-3 test-box-style pl-2 pr-3 pt-3 pb-3 mb-2" 
+            class="mt-3 test-box-style pl-2 pr-3 py-3 mb-2" 
             align-end
             v-for="tests in testsData"
             :key="tests.serialNumber"

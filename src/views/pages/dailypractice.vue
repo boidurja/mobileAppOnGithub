@@ -26,7 +26,7 @@ export default {
         }
     },
     mounted () {
-        Vue.axios.get('http://api.iqube.org.in/api/questioncategories')
+        Vue.axios.get('http://api.iqube.org.in/questioncategories')
 
             .then(response => {
             this.chapterData = response.data
