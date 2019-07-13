@@ -107,11 +107,6 @@
 
 <script>
 
-import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-Vue.use(VueAxios, axios)
 
 export default {
   data () {
@@ -128,7 +123,7 @@ export default {
     }
   },
   mounted () {
-   Vue.axios.get('http://api.iqube.org.in/questions')
+   /*Vue.axios.get('http://api.iqube.org.in/questions')
 
             .then(response => {
             this.questionData = response.data
@@ -157,7 +152,13 @@ export default {
                 })
             })
             .catch(e => {
-            })
+            })*/
+          this.$http.get('/questions').then(response => {
+            this.questionData = response.body;
+            console.log(response.body)
+            }, error => {
+
+          });
 
   },
 
@@ -178,7 +179,7 @@ export default {
     next () {
       this.i++
       
-      Vue.axios.get('http://api.iqube.org.in/questions/' + this.questionData[this.i].id + '/choices')
+      /*Vue.axios.get('http://api.iqube.org.in/questions/' + this.questionData[this.i].id + '/choices')
 
                 .then(response => {
                 this.optionsData = response.data
@@ -197,7 +198,7 @@ export default {
                 }
                 })
                 .catch(e => {
-                })
+                })*/
     }
   }
 }
