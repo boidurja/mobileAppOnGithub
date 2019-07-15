@@ -1,12 +1,12 @@
 <template>
     <v-container class="text-xs-center">
-        <div>
+        <div class="headline">
             {{ chapterName }}
         </div>
 
         <v-divider class="mt-3"></v-divider>
 
-        <div class="mt-5 headline">
+        <div class="mt-5 subheading">
             Daily Practice
         </div>
 
@@ -14,14 +14,19 @@
             This is a practice test.
         </div>
 
-        <v-btn 
-            class="text-capitalize" 
-            block
-            @click="taketest"
-        >  
-            Take Practice test now
-        </v-btn>
-        
+        <v-bottom-nav
+          :value="true" 
+          app
+          color="blue"
+        >
+            <v-btn 
+                class="text-capitalize" 
+                block
+                @click="taketest"
+            >  
+                <div class="white--text subheading">Take Practice test Now</div>
+            </v-btn>
+        </v-bottom-nav>
     </v-container>
 </template>
 

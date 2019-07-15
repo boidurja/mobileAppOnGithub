@@ -9,6 +9,10 @@ import profile from '@/views/pages/profile'
 import dashboard from '@/views/pages/dashboard'
 import dailypractice from '@/views/pages/dailypractice'
 import monthlytest from '@/views/pages/monthlytest'
+import instructions from '@/views/pages/instructions'
+import reports from '@/views/pages/reports'
+import login from '@/views/pages/login'
+
 
 Vue.use(Router)
 
@@ -79,6 +83,39 @@ export default new Router({
           name: 'monthlytest',
           path: 'monthlytest',
           component: monthlytest
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'instructions',
+          path: 'instructions',
+          component: instructions
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'reports',
+          path: 'reports',
+          component: reports
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout },
+      children: [
+        {
+          name: 'login',
+          path: 'login',
+          component: login
         }
       ]
     }

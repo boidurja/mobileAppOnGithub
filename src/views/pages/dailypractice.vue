@@ -13,26 +13,11 @@
 
 <script>
 
-import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-Vue.use(VueAxios, axios)
-
 export default {
     data () {
         return {
             chapterData: [],
         }
-    },
-    mounted () {
-        Vue.axios.get('http://api.iqube.org.in/questioncategories')
-
-            .then(response => {
-            this.chapterData = response.data
-            })
-            .catch(e => {
-            })
     }
 }
 </script>

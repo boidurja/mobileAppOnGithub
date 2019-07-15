@@ -73,20 +73,40 @@
                 hkhkhhk kjhkh
               </v-flex>
             </v-layout>
-          </v-container>
-          
+          </v-container> 
         </fieldset>
+
+        <v-bottom-nav
+          :value="true"
+          absolute
+        >
+          <v-btn
+            flat
+            value="dashboard"
+            @click="goToDashboard()"
+          >
+            <img src="../../assets/dashboard_icon.png" class="icon-style icon-size icon-color-pink" />
+          </v-btn>
+
+          <v-btn
+            flat
+            value="profile"
+          >
+            <img src="../../assets/profile_icon.png" class="icon-style icon-size icon-color-pink darken" />
+          </v-btn>
+
+          <v-btn
+           
+            value="leaderboard"
+          >
+            <img src="../../assets/leaderboard_icon.png" class="icon-style icon-size icon-color-pink" />
+          </v-btn>
+        </v-bottom-nav>
     </v-container>
 </template>
 
 
 <script>
-
-/*import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-Vue.use(VueAxios, axios)*/
 
 export default {
     data () {
@@ -94,14 +114,10 @@ export default {
             studentData: [],
         }
     },
-    mounted () {
-        /*Vue.axios.get('http://api.iqube.org.in/api/students')
-
-            .then(response => {
-            this.studentData = response.data
-            })
-            .catch(e => {
-            })*/
+    methods: {
+      goToDashboard () {
+        this.$router.push( { name: 'dashboard'} )
+      }
     }
 }
 </script>
@@ -143,5 +159,14 @@ export default {
   height: 80px;
   display: flex;
   align-items: center;
+}
+
+.icon-size {
+  width: 45px;
+}
+
+.icon-color-pink {
+    background: rgb(206, 76, 124)!important;
+    color: white;
 }
 </style>

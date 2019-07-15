@@ -1,9 +1,10 @@
 <template>
     <v-container class="mt-4">
-
+      
         <span v-html="questionData[i].body"></span>
 
-        <v-layout class="mt-5">
+        
+        <!--v-layout class="mt-5">
           <v-flex xs3>
             (a) &nbsp; {{optionsData[0].body}}
           </v-flex>
@@ -16,7 +17,7 @@
           <v-flex xs3>
             (d) &nbsp; {{optionsData[3].body}}
           </v-flex>
-        </v-layout>
+        </v-layout-->
 
 
         <v-bottom-nav 
@@ -101,6 +102,37 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
+
+            <v-dialog 
+              v-model="dialog2" 
+              width="400"
+            >
+                <v-card>
+                    <v-card-title 
+                      class="headline lighten-2 text-xs-center" 
+                      :class="iscorrect ? 'font-green' : 'font-orange'" 
+                      primary-title
+                    >
+                        <strong>{{ text }}</strong>
+                    </v-card-title>
+                    <v-card-text v-if="showExplanation">
+                      <span v-html="questionData[i].explanation"></span>
+                    </v-card-text>
+                    <v-card-actions 
+                      v-show="dialog2" 
+                      class="text-xs-center"
+                    >
+                        <v-spacer></v-spacer>
+                        <v-btn 
+                          color="primary" 
+                          flat 
+                          @click="showExplanation=true"
+                        >
+                            Show Explanation
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
         </div>
     </v-container>
 </template>
@@ -114,52 +146,25 @@ export default {
       questionData: [],
       optionsData: [],
       optionselected: '',
-      correctoption: '',
-      buttonvalue: '',
+      correctoption: 'a',
       dialog: false,
+      dialog2: false,
       text: "",
       iscorrect: false,
+      ifIncorrectThreeTimes: 0,
+      showExplanation: false,
       i: 1
     }
   },
   mounted () {
-   /*Vue.axios.get('http://api.iqube.org.in/questions')
-
-            .then(response => {
-            this.questionData = response.data
-
-                Vue.axios.get('http://api.iqube.org.in/questions/' + this.questionData[this.i].id + '/choices')
-
-                .then(response => {
-                
-                this.optionsData = response.data
-
-                if (this.optionsData[0].is_correct) {
-                  this.correctoption = 'a'
-                }
-                if (this.optionsData[1].is_correct) {
-                  this.correctoption = 'b'
-                }
-                if (this.optionsData[2].is_correct) {
-                  this.correctoption = 'c'
-                }
-                if (this.optionsData[3].is_correct) {
-                  this.correctoption = 'd'
-                }
-                
-                })
-                .catch(e => {
-                })
-            })
-            .catch(e => {
-            })*/
-          this.$http.get('/questions').then(response => {
+            
+          this.$http.get('http://api.iqube.org.in/questions').then(response => {
+            
             this.questionData = response.body;
-            console.log(response.body)
-            }, error => {
+            
+            }, response => {
 
           });
-
   },
 
   methods: {
@@ -173,32 +178,19 @@ export default {
         this.iscorrect = false
         this.dialog = true
         this.text = "OOPS! THAT'S INCORRECT"
+        this.ifIncorrectThreeTimes++
+        if (this.ifIncorrectThreeTimes >= 3) {
+          this.dialog = false
+          this.dialog2 = true
+        }
       }
     },
 
     next () {
       this.i++
-      
-      /*Vue.axios.get('http://api.iqube.org.in/questions/' + this.questionData[this.i].id + '/choices')
+      this.showExplanation = false
+      this.ifIncorrectThreeTimes = 0
 
-                .then(response => {
-                this.optionsData = response.data
-
-                if (this.optionsData[0].is_correct) {
-                  this.correctoption = 'a'
-                }
-                if (this.optionsData[1].is_correct) {
-                  this.correctoption = 'b'
-                }
-                if (this.optionsData[2].is_correct) {
-                  this.correctoption = 'c'
-                }
-                if (this.optionsData[3].is_correct) {
-                  this.correctoption = 'd'
-                }
-                })
-                .catch(e => {
-                })*/
     }
   }
 }

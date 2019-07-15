@@ -5,21 +5,21 @@
         </div>
 
         <v-layout 
-            class="mt-3 test-box-style pl-2 pr-3 py-3 mb-2" 
+            class="mt-3 test-box-style pl-2 pr-3" 
             align-end
             v-for="tests in testsData"
             :key="tests.serialNumber"
         >
-            <v-flex xs1 class="mr-2">
-                <v-icon class="icon-style mb-1">{{ tests.icon }}</v-icon>
+            <v-flex xs1 class="mr-2 my-auto">
+                <v-icon class="icon-style">{{ tests.icon }}</v-icon>
             </v-flex>
-            <v-flex xs5>
+            <v-flex xs5 class="my-auto">
                 <strong>{{ tests.serialNumber }}. {{ tests.testName }} {{ tests.testDate }}</strong> <br />
                 Status: {{ tests.status }}
             </v-flex>
             <v-flex 
                 xs6 
-                class="text-xs-right"
+                class="text-xs-right mb-2"
                 v-if="tests.score"
             >
                 Score: {{ tests.score }}
