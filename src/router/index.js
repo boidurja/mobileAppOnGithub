@@ -12,7 +12,9 @@ import monthlytest from '@/views/pages/monthlytest'
 import instructions from '@/views/pages/instructions'
 import reports from '@/views/pages/reports'
 import login from '@/views/pages/login'
-
+import leaderboard from '@/views/pages/leaderboard'
+import dailypracticeresults from '@/views/pages/dailypracticeresults'
+import monthlytestsresults from '@/views/pages/monthlytestsresults'
 
 Vue.use(Router)
 
@@ -116,6 +118,39 @@ export default new Router({
           name: 'login',
           path: 'login',
           component: login
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'leaderboard',
+          path: 'leaderboard',
+          component: leaderboard
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'dailypracticeresults',
+          path: 'dailypracticeresults',
+          component: dailypracticeresults
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'monthlytestsresults',
+          path: 'monthlytestsresults',
+          component: monthlytestsresults
         }
       ]
     }

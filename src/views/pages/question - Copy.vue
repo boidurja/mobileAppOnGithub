@@ -102,7 +102,7 @@
 
         <div class="text-xs-center">
             <v-dialog 
-              v-model="dialogShowCorrectIncorrect" 
+              v-model="dialog" 
               width="400"
             >
                 <v-card>
@@ -122,29 +122,16 @@
                         <v-btn 
                           color="primary" 
                           flat 
-                          @click="dialogShowCorrectIncorrect = false; next()"
+                          @click="dialog = false; next()"
                         >
                             Next Question
-                        </v-btn>
-                    </v-card-actions>
-                    <v-card-actions 
-                      v-show="!iscorrect" 
-                      class="text-xs-center"
-                    >
-                        <v-spacer></v-spacer>
-                        <v-btn 
-                          color="primary" 
-                          flat 
-                          @click="dialogShowCorrectIncorrect = false"
-                        >
-                          Try Again
                         </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
 
             <v-dialog 
-              v-model="dialogShowExplanation" 
+              v-model="dialog2" 
               width="400"
             >
                 <v-card>
@@ -155,49 +142,20 @@
                     >
                         <strong>{{ text }}</strong>
                     </v-card-title>
-                    <v-card-text>
-                      Well, you need to read the explanation
+                    <v-card-text v-if="showExplanation">
+                      <span v-html="questionData[i].explanation"></span>
                     </v-card-text>
                     <v-card-actions 
-                      v-show="dialogShowExplanation" 
+                      v-show="dialog2" 
                       class="text-xs-center"
                     >
                         <v-spacer></v-spacer>
                         <v-btn 
                           color="primary" 
                           flat 
-                          @click="showExplanation=true; dialogShowExplanation=false; dialogExplanation=true"
+                          @click="showExplanation=true"
                         >
                             Show Explanation
-                        </v-btn>
-                    </v-card-actions>
-                </v-card>
-            </v-dialog>
-
-            <v-dialog 
-              v-model="dialogExplanation" 
-              width="400"
-            >
-                <v-card>
-                    <v-card-text v-if="showExplanation">
-                      <div v-if="questionData[i].explanation.length == 8">
-                        <span>No Explanation Available</span>
-                      </div>
-                      <div else>
-                        <span v-html="questionData[i].explanation"></span>
-                      </div>
-                    </v-card-text>
-                    <v-card-actions 
-                      v-show="dialogExplanation" 
-                      class="text-xs-center"
-                    >
-                        <v-spacer></v-spacer>
-                        <v-btn 
-                          color="primary" 
-                          flat 
-                          @click="next()"
-                        >
-                            Next Question
                         </v-btn>
                     </v-card-actions>
                 </v-card>
@@ -216,9 +174,8 @@ export default {
       optionsData: [],
       optionselected: '',
       correctoption: 'a',
-      dialogShowCorrectIncorrect: false,
-      dialogShowExplanation: false,
-      dialogExplanation: false,
+      dialog: false,
+      dialog2: false,
       text: "",
       iscorrect: false,
       ifIncorrectThreeTimes: 0,
@@ -245,17 +202,17 @@ export default {
     submit () {
       if (this.optionselected == this.correctoption) {
         this.iscorrect = true
-        this.dialogShowCorrectIncorrect = true
+        this.dialog = true
         this.text = "WHOO! THAT'S CORRECT"
       }
       if (this.optionselected != this.correctoption) {
         this.iscorrect = false
-        this.dialogShowCorrectIncorrect = true
+        this.dialog = true
         this.text = "OOPS! THAT'S INCORRECT"
         this.ifIncorrectThreeTimes++
         if (this.ifIncorrectThreeTimes >= 3) {
-          this.dialogShowCorrectIncorrect = false
-          this.dialogShowExplanation = true
+          this.dialog = false
+          this.dialog2 = true
         }
       }
     },
@@ -268,7 +225,6 @@ export default {
       this.changeBackgroundColorOfButtonB = false
       this.changeBackgroundColorOfButtonC = false
       this.changeBackgroundColorOfButtonD = false
-      this.dialogExplanation = false
 
     }
   }

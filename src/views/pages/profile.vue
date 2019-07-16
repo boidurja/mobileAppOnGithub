@@ -92,7 +92,7 @@
             flat
             value="profile"
           >
-            <img src="../../assets/profile_icon.png" class="icon-style icon-size icon-color-pink darken" />
+            <img src="../../assets/profile_icon.png" class="icon-style icon-size icon-color-pink" />
           </v-btn>
 
           <v-btn

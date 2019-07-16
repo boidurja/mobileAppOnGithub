@@ -1,7 +1,7 @@
 <template>
 
     <v-container>
-      <img src="../../assets/header cropped.png" class="image-width my-3">
+      <img src="../../assets/header cropped.png" class="logo-image-width my-3">
 
       <div class="pb-2">
         <div class="login-text-color mt-1 mb-3 title text-xs-center">Login</div>
@@ -48,7 +48,7 @@
           </v-btn>
 
           <br>
-          <div class="flex1 mt-2 mx-4">
+          <div class="space-between mt-2 mx-4">
             <div>
               <input type="checkbox" id="one">
               <label for="one">Remember Me</label>
@@ -123,7 +123,7 @@ export default {
   background: rgb(35,31,32);
 }
 
-.image-width {
+.logo-image-width {
   width: 100%;
 }
 
@@ -146,7 +146,7 @@ export default {
   text-transform: capitalize;
 }
 
-.flex1 {
+.space-between {
   display: flex;
   justify-content: space-between;
 }

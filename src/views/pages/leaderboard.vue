@@ -1,15 +1,15 @@
 <template>
     <v-container text-xs-center>
-      <v-container class="dashboard-height">
+      <v-container class="leaderboard-height">
         <v-layout wrap align-center justify-center fill-height>
           <v-flex xs12>
-            <router-link to="/dailypractice">
-              <h2 class="text-sm-center">
-                Daily Practice
+            <router-link to="/dailypracticeresults">
+              <h2 class="text-sm-center mb-3">
+                Daily Practice Results
               </h2>
               <img 
-                src="../../assets/daily_practice_icon@3x.png.png" 
-                class="dashboard-image-height" 
+                src="../../assets/daily-practice-results.gif" 
+                class="leaderboard-image-height" 
               />
             </router-link>
           </v-flex>
@@ -18,14 +18,14 @@
 
       <v-divider></v-divider>
 
-      <v-container class="dashboard-height">
+      <v-container class="leaderboard-height">
         <v-layout wrap align-center justify-center fill-height>
           <v-flex xs12>
-            <router-link to="/monthlytest">
-              <h2 class="text-sm-center">Monthly Tests</h2>
+            <router-link to="/monthlytestsresults">
+              <h2 class="text-sm-center">Monthly Tests Results</h2>
               <img 
-                src="../../assets/monthly-test-results.gif" 
-                class="dashboard-image-height" 
+                src="../../assets/monthly_test_icon@3x.png.png" 
+                class="leaderboard-image-height" 
               />
             </router-link>  
           </v-flex>
@@ -39,6 +39,7 @@
           <v-btn
             flat
             value="dashboard"
+            @click="goToDashboard()"
           >
             <img src="../../assets/dashboard_icon.png" class="icon-style icon-size icon-color-pink" />
           </v-btn>
@@ -51,7 +52,7 @@
           </v-btn>
 
           <v-btn
-            @click="goToLeaderboard"
+           
             value="leaderboard"
           >
             <img src="../../assets/leaderboard_icon.png" class="icon-style icon-size icon-color-pink" />
@@ -60,28 +61,12 @@
     </v-container>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-
-    }
-  },
-  methods: {
-    goToLeaderboard () {
-      this.$router.push( { name: 'leaderboard' } )
-    }
-  }
-}
-</script>
-
-
 <style>
 
-.dashboard-height {
+.leaderboard-height {
   height: calc( (100vh - 116px)/2 );
 }
-.dashboard-image-height {
+.leaderboard-image-height {
   height: 20vh;
 }
 

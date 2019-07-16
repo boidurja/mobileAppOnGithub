@@ -13,7 +13,6 @@
                 block
                 color="blue"
                 class="white--text text-capitalize"
-                @click=""
             >
                 <div class="white--text subheading">Take Test Now</div>
             </v-btn>
