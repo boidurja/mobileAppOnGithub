@@ -1,6 +1,5 @@
 <template>
     <v-container>
-        Daily Practice Results
         <v-tabs grow>
             <v-tab ripple
                 active-class="blue-text-button"
@@ -10,7 +9,7 @@
             </v-tab>
             <v-tab-item>
                 <v-card flat>
-                    <div class="pt-4">
+                    <div class="pt-3">
                         <v-container>
                             <v-layout align-center justify-space-around row fill-height>
                                 <v-flex xs4>
@@ -66,11 +65,11 @@
                             </div>
                         </v-container>
 
-                        <v-bottom-nav absolute color="blue" dark>
+                        <!--v-bottom-nav absolute color="blue" dark>
                             <v-btn>
                                 View all
                             </v-btn>
-                        </v-bottom-nav>
+                        </v-bottom-nav-->
                     </div>
                 </v-card>
             </v-tab-item>
@@ -146,11 +145,11 @@
                                             </div>
                                         </v-container>
 
-                                        <v-bottom-nav absolute color="blue" dark>
+                                        <!--v-bottom-nav absolute color="blue" dark>
                                             <v-btn>
                                                 View all
                                             </v-btn>
-                                        </v-bottom-nav>
+                                        </v-bottom-nav-->
                                     </v-card-text>
                                 </v-card>
                             </v-tab-item>
@@ -208,11 +207,11 @@
                                             </div>
                                         </v-container>
 
-                                        <v-bottom-nav absolute color="blue" dark>
+                                        <!--v-bottom-nav absolute color="blue" dark>
                                             <v-btn>
                                                 View all
                                             </v-btn>
-                                        </v-bottom-nav>
+                                        </v-bottom-nav-->
                                     </v-card-text>
                                 </v-card>
                             </v-tab-item>
@@ -221,12 +220,18 @@
                 </v-card>
             </v-tab-item>
         </v-tabs>
+        <v-bottom-nav absolute color="blue" dark>
+            <v-btn @click="goToDailyPracticeMyLeagueFulllist">
+                View all
+            </v-btn>
+        </v-bottom-nav>
     </v-container>    
 </template>
 
 <script>
 
 export default {
+
     data () {
         return {
             myLeaguesTopRankers: [
@@ -314,6 +319,11 @@ export default {
                     score: 400 
                 }
             ]
+        }
+    },
+    methods: {
+        goToDailyPracticeMyLeagueFulllist () {
+            this.$router.push({ name: 'dailypracticemyleaguefulllist'})
         }
     }
 }

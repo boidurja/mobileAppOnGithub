@@ -46,6 +46,7 @@
           <v-btn
             flat
             value="profile"
+            @click="goToProfile()"
           >
             <img src="../../assets/profile_icon.png" class="icon-style icon-size icon-color-pink" />
           </v-btn>
@@ -70,6 +71,9 @@ export default {
   methods: {
     goToLeaderboard () {
       this.$router.push( { name: 'leaderboard' } )
+    },
+    goToProfile () {
+        this.$router.push( { name: 'profile'} )
     }
   }
 }

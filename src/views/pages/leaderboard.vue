@@ -47,12 +47,13 @@
           <v-btn
             flat
             value="profile"
+            @click="goToProfile()"
           >
             <img src="../../assets/profile_icon.png" class="icon-style icon-size icon-color-pink" />
           </v-btn>
 
           <v-btn
-           
+           flat
             value="leaderboard"
           >
             <img src="../../assets/leaderboard_icon.png" class="icon-style icon-size icon-color-pink" />
@@ -60,6 +61,25 @@
         </v-bottom-nav>
     </v-container>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+    goToDashboard () {
+      this.$router.push( { name: 'dashboard'} )
+    },
+    goToProfile () {
+        this.$router.push( { name: 'profile'} )
+    }
+  }
+}
+</script>
+
 
 <style>
 

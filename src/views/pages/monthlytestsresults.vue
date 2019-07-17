@@ -59,7 +59,7 @@
         </v-container>
 
         <v-bottom-nav absolute color="blue" dark>
-            <v-btn>
+            <v-btn @click="goToMonthyTestTopRankersFulllist">
                 View all
             </v-btn>
         </v-bottom-nav>
@@ -105,6 +105,11 @@ export default {
                     score: 900 
                 }
             ]
+        }
+    },
+    methods: {
+        goToMonthyTestTopRankersFulllist () {
+            this.$router.push({ name: 'monthytesttoprankersfulllist' })
         }
     }
 }

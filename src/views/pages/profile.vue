@@ -96,8 +96,9 @@
           </v-btn>
 
           <v-btn
-           
+            flat
             value="leaderboard"
+            @click="goToLeaderboard()"
           >
             <img src="../../assets/leaderboard_icon.png" class="icon-style icon-size icon-color-pink" />
           </v-btn>
@@ -117,6 +118,9 @@ export default {
     methods: {
       goToDashboard () {
         this.$router.push( { name: 'dashboard'} )
+      },
+      goToLeaderboard () {
+        this.$router.push( { name: 'leaderboard'} )
       }
     }
 }

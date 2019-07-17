@@ -1,5 +1,5 @@
 <template>
-    <v-container class="text-xs-center container-height">
+    <v-container class="text-xs-center">
         <div class="subheading">
             Read the below instructions carefully before solving the question Paper.
         </div>
@@ -19,10 +19,4 @@
         </v-bottom-nav>     
     </v-container>
 </template>
-
-<style>
-.container-height {
-    height: calc(100vh - 56px - 32px);
-}
-</style>
 

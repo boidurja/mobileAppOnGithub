@@ -15,6 +15,9 @@ import login from '@/views/pages/login'
 import leaderboard from '@/views/pages/leaderboard'
 import dailypracticeresults from '@/views/pages/dailypracticeresults'
 import monthlytestsresults from '@/views/pages/monthlytestsresults'
+import dailypracticemyleaguefulllist from '@/views/pages/dailypracticemyleaguefulllist'
+import monthytesttoprankersfulllist from '@/views/pages/monthytesttoprankersfulllist'
+
 
 Vue.use(Router)
 
@@ -151,6 +154,28 @@ export default new Router({
           name: 'monthlytestsresults',
           path: 'monthlytestsresults',
           component: monthlytestsresults
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'dailypracticemyleaguefulllist',
+          path: 'dailypracticemyleaguefulllist',
+          component: dailypracticemyleaguefulllist
+        }
+      ]
+    },
+    {
+      path: '/',
+      components: { default: applayout, header: header },
+      children: [
+        {
+          name: 'monthytesttoprankersfulllist',
+          path: 'monthytesttoprankersfulllist',
+          component: monthytesttoprankersfulllist
         }
       ]
     }
