@@ -19,14 +19,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-.style-of-v-content {
-
-}
-
-.style-of-router-view {
-
-}
-</style>
